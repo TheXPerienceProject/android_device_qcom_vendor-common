@@ -1,4 +1,5 @@
 $(call inherit-product, device/qcom/vendor-common/base.mk)
+$(call inherit-product, device/qcom/common/common.mk)
 
 # For PRODUCT_COPY_FILES, the first instance takes precedence.
 # Since we want use QC specific files, we should inherit
@@ -33,11 +34,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     sys.vendor.shutdown.waittime=500 \
     persist.vendor.radio.procedure_bytes=SKIP
 
-ifneq ($(BOARD_FRP_PARTITION_NAME),)
-    PRODUCT_PROPERTY_OVERRIDES += ro.frp.pst=/dev/block/bootdevice/by-name/$(BOARD_FRP_PARTITION_NAME)
-else
-    PRODUCT_PROPERTY_OVERRIDES += ro.frp.pst=/dev/block/bootdevice/by-name/config
-endif
+#ifneq ($(BOARD_FRP_PARTITION_NAME),)
+#    PRODUCT_PROPERTY_OVERRIDES += ro.frp.pst=/dev/block/bootdevice/by-name/$(BOARD_FRP_PARTITION_NAME)
+#else
+#    PRODUCT_PROPERTY_OVERRIDES += ro.frp.pst=/dev/block/bootdevice/by-name/config
+#endif
 
 # whitelisted app
 PRODUCT_COPY_FILES += \
@@ -56,14 +57,14 @@ PRODUCT_COPY_FILES += $(QCPATH)/commonsys-intf/telephony/build/telephony_product
 # Permission for Wi-Fi passpoint support
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.passpoint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.passpoint.xml
 
-PRODUCT_PRIVATE_KEY := device/qcom/common/qcom.key
+#PRODUCT_PRIVATE_KEY := device/qcom/common/qcom.key
 PRODUCT_PACKAGES += qcril.db
 
-ifneq ($(TARGET_DEFINES_DALVIK_HEAP), true)
-ifneq ($(TARGET_HAS_LOW_RAM), true)
-$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
-endif
-endif
+#ifneq ($(TARGET_DEFINES_DALVIK_HEAP), true)
+#ifneq ($(TARGET_HAS_LOW_RAM), true)
+#$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+#endif
+#endif
 
 #$(call inherit-product, frameworks/base/data/fonts/fonts.mk)
 #$(call inherit-product, frameworks/base/data/keyboards/keyboards.mk)
