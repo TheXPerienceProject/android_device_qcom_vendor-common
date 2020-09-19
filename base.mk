@@ -942,7 +942,7 @@ PRODUCT_PACKAGES += tcmiface
 #PRODUCT_PACKAGES += libhealthd.msm
 
 #intialise PRODUCT_PACKAGES_DEBUG list for debug modules
-PRODUCT_PACKAGES_DEBUG := init.qcom.testscripts.sh
+#PRODUCT_PACKAGES_DEBUG := init.qcom.testscripts.sh
 
 #Add init.qcom.test.rc to PRODUCT_PACKAGES_DEBUG list
 #PRODUCT_PACKAGES_DEBUG += init.qcom.test.rc

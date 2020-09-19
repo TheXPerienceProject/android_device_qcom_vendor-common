@@ -1,5 +1,4 @@
 $(call inherit-product, device/qcom/vendor-common/base.mk)
-$(call inherit-product, device/qcom/common/common.mk)
 
 # For PRODUCT_COPY_FILES, the first instance takes precedence.
 # Since we want use QC specific files, we should inherit
@@ -65,6 +64,10 @@ PRODUCT_PACKAGES += qcril.db
 #$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 #endif
 #endif
+
+# XPerience postboot based on qcom file
+PRODUCT_PACKAGES += \
+    init.xperience.postboot.sh
 
 #$(call inherit-product, frameworks/base/data/fonts/fonts.mk)
 #$(call inherit-product, frameworks/base/data/keyboards/keyboards.mk)
